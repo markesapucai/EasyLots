@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Lots Register</title>
+</head>
+<%- include('includes/nav'); %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-8 my-3">
+                <h1 class="text-center">Cadastrar Lotes</h1>
+
+                    <%- include('includes/messages'); %> 
+
+                    <div class="row">
+
+                        <div class="col-lg my-5">
+                            <h4>Cadastre seu Loteamento</h4>
+                            <p>Se seu loteamento não existe, preencha o formulário abaixo:</p>
+
+                            <form class="row g-3" action="/lots/register" method="post">
+                                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                                <div class="col-md-12 mb-3">
+                                    <label for="inputAddress" class="form-label">Endereço</label>
+                                    <input type="text" class="form-control" id="inputAddress" name="endereco" placeholder="Av. Nome da avenida" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="inputAddress2" class="form-label">Complemento</label>
+                                    <input type="text" class="form-control" id="inputAddress2" name="complemento" placeholder="Algum complemento">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="inputCity" class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" id="inputCity" name="cidade" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="inputState" class="form-label">Estado</label>
+                                    <input type="text" class="form-control" id="inputState" name="estado" required>
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label for="inputZip" class="form-label">CEP</label>
+                                    <input type="text" class="form-control" id="inputZip" name="cep" required>
+                                </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="col-lg-8 my-3 btn btn-primary">Cadastrar</button>
+                        </div>
+                        </form>
+
+
+
+                    </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-2"></div>
+    </div>
+    </div>
+
+
+    <%- include('includes/footer.ejs') %>

@@ -1,16 +1,28 @@
 const express = require('express');
 const route = express.Router();
 
-const lotsController = require('./src/controllers/lotsController');
+
+const lotsRegisterController = require('./src/controllers/lotsRegisterController');
 const homeController = require('./src/controllers/homeController');
 const loginController = require('./src/controllers/loginController');
 const contatoController = require('./src/controllers/contatoController');
 
 const { loginRequired } = require('./src/middlewares/middleware');
 
+route.get('/', loginController.index);
+route.get('/dashboard', loginRequired, homeController.index);
+
+
+
+
+route.get('/lots/register', loginRequired, homeController.lotsRegister);
+route.post('/lots/register', lotsRegisterController.registered);
+
+
+//ROTAS ANTIGAS
+
 // Rotas da home
-route.get('/', homeController.index);
-route.get('/lots/register', lotsController.index);
+//route.get('/', homeController.index);
 
 // Rotas de login
 route.get('/login/index', loginController.index);
