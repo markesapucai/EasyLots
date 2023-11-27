@@ -16,7 +16,9 @@ route.get('/dashboard', loginRequired, homeController.index);
 
 
 route.get('/lots/register', loginRequired, homeController.lotsRegister);
-route.post('/lots/register', lotsRegisterController.registered);
+route.post('/lots/register/:id', lotsRegisterController.registered);
+route.get('/lots/register/:id', lotsRegisterController.editIndex);
+route.post('/lots/edit/:id', lotsRegisterController.edit);
 
 
 //ROTAS ANTIGAS

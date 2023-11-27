@@ -23,9 +23,10 @@
 
                         <div class="col-lg my-5">
                             <h4>Cadastre seu Loteamento</h4>
-                            <p>Se seu loteamento não existe, preencha o formulário abaixo:</p>
+                            <p>Se seu loteamento não existe, preencha o formulário abaixo. Caso contrario, prossiga com o cadastro dos lotes.</p>
 
-                            <form class="row g-3" action="/lots/register" method="post">
+                                <form class="row g-3" action="/lots/register/:id" method="POST">
+                                
                                 <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                                 <div class="col-md-12 mb-3">
                                     <label for="inputAddress" class="form-label">Endereço</label>
@@ -37,11 +38,11 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="inputCity" class="form-label">Cidade</label>
-                                    <input type="text" class="form-control" id="inputCity" name="cidade" required>
+                                    <input  type="text" class="form-control" id="inputCity" name="cidade" required>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="inputState" class="form-label">Estado</label>
-                                    <input type="text" class="form-control" id="inputState" name="estado" required>
+                                    <input  type="text" class="form-control" id="inputState" name="estado" required>
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label for="inputZip" class="form-label">CEP</label>
@@ -49,15 +50,38 @@
                                 </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 mb-3">
                             <button type="submit" class="col-lg-8 my-3 btn btn-primary">Cadastrar</button>
                         </div>
                         </form>
-
-
-
                     </div>
 
+                    <div class="col-lg my-5">
+                        <h4>Cadastre seus Lotes</h4>
+                        <p>Informe a quantidade com seus respectivos tamanhos em METROS. Ao finalizar, pressione o mais e em seguida envie o formulário.</p>
+
+
+                        <form class="row g-3" action="/" method="post">
+                            <div class="col-md-2">
+                              <label for="inputEmail4" class="form-label">Qntd.</label>
+                              <input type="number" class="form-control" id="inputEmail4" name="qntd" required>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="inputPassword4" class="form-label">Comprimento</label>
+                              <input type="number" class="form-control" id="inputPassword4" name="comprimento" required>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="inputPassword4" class="form-label">Largura</label>
+                              <input type="number" class="form-control" id="inputPassword4" name="comprimento" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputPassword4" class="form-label">Add/Del</label>
+                                <button class="btn btn-primary">+</button>
+                            </div>
+
+                          </form>
+
+                    </div>      
             </div>
 
         </div>
